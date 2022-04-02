@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
+use App\Http\Controllers\MyController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,43 +16,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/{page?}', function ($page = "index") {
-  
-    return view($page);
-});
-/*
-Route::get('/{index}{indec}', function ($name) {
-    echo "xin chao ". $name;
-    return view('index') ;
- });
- */
-Route::get('/user/{id}', function ($id) {
-    echo "xin chao ". $id;
-})->where('id', '[0-9]+');
+Route::get('/', [MyController::class, 'index']);
 
+Route::get('/product', [MyController::class, 'product']); 
+Route::get('/store', [MyController::class, 'store']); 
+//Route::resource('/product', ProductController::class, [only (cho phép hoặc excpet loại trừ)] => ['index', 'show' (các phương thức hạn chế)]);
 /*
-Route::get('/index', function () {
-    return view('index');
-});
+Route::get('/product', [ProductController::class]); //index
+Route::get('/product/create', [ProductController::class]); //create
+Route::post('/product', [ProductController::class]); //store
+Route::get('/product/{id}', [ProductController::class]); //show
+Route::get('/product/{id}/edit', [ProductController::class]); //edit
+Route::patch('/product/{id}', [ProductController::class]); //update
+Route::put('/product/{id}', [ProductController::class]); //update
+Route::delete('/product/{id}', [ProductController::class]); //destroy
 */
-/*
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::get('/test', function () {
-    return view('test');
-});
-Route::get('/indec', function () {
-    return view('indec');
-});
-*/
-// khoong cos tham so cungx chayj dc ko bawt
-Route::get('/rp/{name}', function ($name) {
-   echo "xin chao ". $name;
-});
-// bawts buoocj cos tham so
-Route::get('/op/{name?}', function ($name="demo") {
-    echo "xin chao ". $name;
- });
-
-
