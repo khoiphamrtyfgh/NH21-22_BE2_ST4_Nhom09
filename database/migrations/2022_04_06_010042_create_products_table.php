@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
       
       
+      
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -23,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('image',150);
             $table->text('description');
+            $table->integer('quantity');
             $table->tinyInteger('feature');
             $table->timestamps();
 
@@ -36,6 +38,7 @@ class CreateProductsTable extends Migration
      */
     public function down()
     {
+      
         Schema::dropIfExists('products');
     }
 }
