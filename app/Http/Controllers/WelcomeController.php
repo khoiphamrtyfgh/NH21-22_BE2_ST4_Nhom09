@@ -12,12 +12,12 @@ class WelcomeController extends Controller
         $products = Product::all();
         return view('index2',['data'=>$products]);
     }
-    // function getAllProductById($id){
-    //     $products = Product::find($id);
-    //     return view('single',['data'=>$products]);
-    // }
-    // function getAllProductByManu($manu_id){
-    //     $products = Product::where('manu_id',$manu_id)->get();
-    //     return view('index',['data'=>$products]);
-    // }
+    function getAllProductById($id){
+        $products = Product::find($id);
+        return view('single',['data'=>$products]);
+    }
+    function getAllProductByManu($manu_id){
+        $products = Product::where('manu_id',$manu_id)->get();
+        return view('index',['data'=>$products]);
+    }
 }
