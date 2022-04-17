@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 use App\Http\Controllers\MyController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\WelcomeController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -16,8 +18,12 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/{name?}', [MyController::class, 'index']);
-// Route::get('/', [MyController::class, 'index']);
+//Route::get('/{name?}', [MyController::class, 'index']);
+ //Route::get('/', [MyController::class, 'index']);
+ Route::get('/', [WelcomeController::class, 'getAllProduct']);
+ //Route::get('/', [WelcomeController::class, 'getAllProductById']);
+
+ 
 
 // Route::get('/product', [MyController::class, 'product']); 
 // Route::get('/store', [MyController::class, 'store']); 
