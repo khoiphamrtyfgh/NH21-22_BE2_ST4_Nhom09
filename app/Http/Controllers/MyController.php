@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class MyController extends Controller
 {
-    function index($name = 'index2') {
+    function index($name = 'index') {
         return view($name);
     }
   

@@ -13,6 +13,7 @@
         <tr>
             <td>{{ $row->name }}</td>
             <td>{{ $row->manufacture->manu_name }}</td>
+            <td>{{ $row->manufacture->name }}</td>
             <td>{{ $row->protype->type_name }}</td>
             
            

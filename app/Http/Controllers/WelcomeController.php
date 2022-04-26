@@ -8,6 +8,12 @@ use App\Models\Product;
 
 class WelcomeController extends Controller
 {
+
+    function getAllProducts(){
+        $products = Product::all();
+        return view('index',['data'=>$products]);
+    }
+    // demo
     function getAllProduct(){
         $products = Product::all();
         return view('index2',['data'=>$products]);

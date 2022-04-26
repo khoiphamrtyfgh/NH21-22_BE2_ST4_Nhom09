@@ -17,10 +17,10 @@ use App\Http\Controllers\WelcomeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-//Route::get('/{name?}', [MyController::class, 'index']);
- //Route::get('/', [MyController::class, 'index']);
- Route::get('/', [WelcomeController::class, 'getAllProduct']);
+//Route::get('/{name?}', [WelcomeController::class, 'getAllProducts']);
+// Route::get('/{name?}', [MyController::class, 'index']);
+ Route::get('/', [WelcomeController::class, 'getAllProducts']);
+ //Route::get('/', [WelcomeController::class, 'getAllProduct']);
  //Route::get('/', [WelcomeController::class, 'getAllProductById']);
 
  
