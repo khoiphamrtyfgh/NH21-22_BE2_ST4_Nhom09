@@ -10,6 +10,6 @@ class Manufacture extends Model
     use HasFactory;
     public function products()
     {
-        return $this->hasMany(Product::class,'manu_id','id');
+        return $this->hasMany(Product::class, 'manu_id', 'id');
     }
 }

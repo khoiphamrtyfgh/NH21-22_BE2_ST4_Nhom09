@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Models\Product;
 use App\Models\Protype;
 use App\Models\Manufacture;
@@ -48,11 +49,11 @@ class ProtypeController extends Controller
      */
     public function show($id)
     {
-        $products = Product::where('type_id','=',$id)->where('quantity','>',0)->paginate(3);
+        $products = Product::where('type_id', '=', $id)->where('quantity', '>', 0)->paginate(3);
         $protypes = Protype::all();
         $manufactures = Manufacture::all();
-        return view('productype',['data'=>$products])->with('protypes',$protypes)->with('i',(request()->input('page',1)-1)*4) ->with('protypes',$protypes)
-        ->with('manufactures',$manufactures);
+        return view('productype', ['data' => $products])->with('protypes', $protypes)->with('i', (request()->input('page', 1) - 1) * 4)->with('protypes', $protypes)
+            ->with('manufactures', $manufactures);
         // return view('productype');
     }
 
@@ -76,7 +77,11 @@ class ProtypeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        echo "creat";
+        $request->flash();
+        $protype = Protype::where("type_id", $id)->update(["type_name" => $request->type_name]);
+
+        $protypes = Protype::all();
+        return view('admin.protypes', ['data' => $protypes]);
     }
 
     /**
@@ -85,8 +90,27 @@ class ProtypeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
-        echo "creat";
+        $request->flash();
+
+        $protype = Protype::where('type_id',  $request->type_id)->delete();
+
+        return redirect()->back();
     }
+    public function add(Request $request)
+    {
+        $request->flash();
+        $protype = new Protype();
+        $protype->type_name = $request->type_name;
+
+        $protype->save();
+        $protypes = Protype::all();
+        return view('admin.protypes', ['data' => $protypes]);
+    }
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
 }

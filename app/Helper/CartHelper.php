@@ -25,6 +25,7 @@ class CartHelper
             'price' => $product->price,
             'image' => $product->image,
             'quantity' => $quantity,
+         
         ];
         if(isset($this->items[$product->id])){
             $this->items[$product->id]['quantity'] += $quantity;
@@ -55,6 +56,7 @@ class CartHelper
         }
         session(['cart'=>$this->items]);
     }
+    
 
     public function clear()
     {

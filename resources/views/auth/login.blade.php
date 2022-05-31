@@ -46,7 +46,12 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
+                <!-- Them register tren form login -->
+                <x-button class="ml-3">
+                <a href="{{ url('register') }}">
+                    {{ __('Register') }}
+                </a>
+                </x-button>
                 <x-button class="ml-3">
                     {{ __('Log in') }}
                 </x-button>

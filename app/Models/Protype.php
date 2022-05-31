@@ -10,6 +10,6 @@ class Protype extends Model
     use HasFactory;
     public function products()
     {
-        // return $this->hasMany(Product::class,'type_id','id');
+        return $this->hasMany(Product::class,'type_id','id');
     }
 }

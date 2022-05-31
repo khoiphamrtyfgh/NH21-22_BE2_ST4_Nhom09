@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\Protype;
 use App\Helper\CartHelper;
 
 class CartController extends Controller
 {
    
     public function view(){
-        return view('cart');
+        $protype = Protype::All();
+        return view('cart',['protypes'=>$protype]);
     }
 
     public function add(CartHelper $cart,$id){
