@@ -101,7 +101,7 @@
 										<div class="product-body">
 
 											<p class="product-category">Category <span class="badge rounded-pill text-bg-info"> {{ $row->protype->type_name }}</span> </p>
-											<h3 class="product-name"><a href="{{ url('product')}}">{{ $row->name }}</a></h3>
+											<h3 class="product-name"><a href="{{ url('product/'.$row->id)}}">{{ $row->name }}</a></h3>
 											<h4 class="product-price">{{number_format($row->price)}} VND<del class="product-old-price"></del></h4>
 
 											<div class="product-rating">
@@ -240,7 +240,7 @@
 										</div>
 										<div class="product-body">
 											<p class="product-category">{{$row->protype->type_name}}</p>
-											<h3 class="product-name"><a href="{{ url('product')}}">{{$row->name}}</a></h3>
+											<h3 class="product-name"><a href="{{ url('product/'.$row->id)}}">{{$row->name}}</a></h3>
 											<h4 class="product-price">{{number_format($row->price)}} VND <del class="product-old-price"></del></h4>
 
 
